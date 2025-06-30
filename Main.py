@@ -4,8 +4,8 @@ import time
 
 # CIQ client setup
 client = NineBitCIQClient(
-    base_url="http://192.168.1.21:8090",
-    api_key="a07f30e6-fcf7-4a44-87c5-108b1d22e117"
+    base_url="http://localhost:8090",
+    api_key="17c2e97e-d3c7-4018-bb48-e47d0cebea2f"
 )
 
 st.set_page_config(page_title="CIQ Chatbot", page_icon="🤖")
