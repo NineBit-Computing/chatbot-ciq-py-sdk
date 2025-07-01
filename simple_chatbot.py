@@ -3,20 +3,22 @@ import time
 
 try:
     client = NineBitCIQClient(
-        # api_key="4a4e88b4-88cb-4d66-aefb-c4dcee991cff",
-        api_key="ad413818-5d0e-4eb3-ab7d-230d0009e170",
-        base_url="http://localhost:8090"
+        api_key="a3a2c7ba-6937-4796-afc8-42d54ef3074f",
+        # base_url="http://localhost:8090"
     )
 
-    dt = client.get_design_time_workflow()
-
-    def on_done(error):
+    def on_done(error, data):
         if error:
-            print(f"Task failed: {error}")
+            print(f"Ingest_file failed: {error}")
         else:
-            print("Task succeeded")
+            print(f"Ingest_file succeeded: {str(data)}")
 
-    client.ingest_file(file="files/geo_chap_9.pdf", callback=on_done)
+    client.ingest_file(file="files/geo_chap_8.pdf", callback=on_done)
+
+    # query = "What are the factors that control temperature distribution on the surface of the earth?"
+    query = "What are land breeze?"
+    response = client.rag_query(query=query)
+    print(f"Query response is {response}")
 
 except Exception as ex:
     print(f"Error: {str(ex)}")
